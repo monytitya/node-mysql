@@ -13,7 +13,11 @@ app.get('/test',(request, response) =>{
     response.status(200).send(' <h1>Hello express with mysql</h1>')
 });
 
-
+//route api
+app.use("/api/v1/student", require("./routes/studentroute"));
+app.use("/test", (request, respone) => {
+    respone.status(200).send("<h1>Node js is start to her App!!</h1>")
+})
 
 const PORT = process.env.PORT || 3306;
 mySqlPool
@@ -23,8 +27,8 @@ mySqlPool
     app.listen(PORT, () => {
     console.log(`server is started ${process.env.PORT}`.bgMagenta.white);
     
-}).catch((err) => {
-    console.log(err);
+}).catch((eror) => {
+    console.log(eror);
     
 })
     
